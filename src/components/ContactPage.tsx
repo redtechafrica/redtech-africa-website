@@ -1,0 +1,409 @@
+import React, { useState, useRef, useEffect } from 'react';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ArrowRight, MapPin, Phone, Mail, Loader2 } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
+import LocationMap from "@/components/LocationMap";
+
+const reasonOptions = [
+  { value: "select", label: "Select Service Interest" },
+  { value: "resourcing", label: "Resourcing" },
+  { value: "edtech", label: "EdTech" },
+  { value: "technology", label: "Technology" },
+  { value: "general", label: "General Inquiry" },
+];
+
+export default function ContactPage() {
+  const { toast } = useToast();
+  const { isDark } = useTheme();
+  const form = useRef<HTMLFormElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [reasonForEnquiry, setReasonForEnquiry] = useState("select");
+  const [emailJSLoaded, setEmailJSLoaded] = useState(false);
+
+  // Load EmailJS dynamically
+  useEffect(() => {
+    if ((window as any).emailjs) {
+      setEmailJSLoaded(true);
+      return;
+    }
+    
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+    script.async = true;
+    
+    script.onload = () => {
+      (window as any).emailjs.init('UCiv2mzh9PWuZPf1X');
+      setEmailJSLoaded(true);
+    };
+    
+    script.onerror = () => {
+      console.error('Failed to load EmailJS');
+    };
+    
+    document.head.appendChild(script);
+    
+    return () => {
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
+
+  const handleGetDirections = (e: React.MouseEvent<HTMLAnchorElement>, address: string) => {
+    e.preventDefault();
+    const encodedAddress = encodeURIComponent(address);
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isIOS = /iphone|ipad|ipod/.test(userAgent);
+    const isAndroid = /android/.test(userAgent);
+
+    let mapsUrl;
+    if (isIOS) {
+      mapsUrl = `maps://maps.apple.com/?q=${encodedAddress}`;
+    } else if (isAndroid) {
+      mapsUrl = `geo:0,0?q=${encodedAddress}`;
+    } else {
+      mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+    }
+
+    window.open(mapsUrl, "_blank");
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    if (!form.current || !emailJSLoaded) {
+      toast({
+        title: "Error",
+        description: "Email service is not ready. Please try again in a moment.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const result = await (window as any).emailjs.sendForm(
+        'service_ybmsmpf',
+        'template_ocysv8r',
+        form.current,
+        'UCiv2mzh9PWuZPf1X'
+      );
+
+      console.log('Email sent successfully:', result.text);
+      
+      toast({
+        title: "Success!",
+        description: "Your message has been sent successfully. We'll get back to you soon!",
+        variant: "default",
+      });
+
+      // Reset form
+      form.current.reset();
+      setReasonForEnquiry("select");
+
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      
+      toast({
+        title: "Error",
+        description: "Failed to send your message. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <div className={`min-h-screen w-full transition-colors duration-300 ${
+      isDark ? 'bg-gray-900' : 'bg-[#8e5e42]/5'
+    }`}>
+      {/* Animated background */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className={`absolute -top-40 -right-40 w-80 h-80 rounded-full opacity-20 animate-pulse ${
+          isDark ? 'bg-[#8e5e42]' : 'bg-[#8e5e42]'
+        }`}></div>
+        <div className={`absolute -bottom-40 -left-40 w-80 h-80 rounded-full opacity-20 animate-pulse delay-1000 ${
+          isDark ? 'bg-[#8e5e42]' : 'bg-[#8e5e42]'
+        }`}></div>
+      </div>
+      
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-20">
+        <h1 className={`text-4xl font-light text-center mb-12 transition-colors duration-300 font-heading ${
+          isDark ? 'text-white' : 'text-gray-900'
+        }`}>
+          Let's Build Something Great Together.
+        </h1>
+
+        <div className={`p-6 sm:p-8 rounded-lg shadow-sm mb-12 transition-colors duration-300 ${
+          isDark ? 'bg-gray-800 shadow-[#8e5e42]/10' : 'bg-white shadow-[#8e5e42]/10'
+        }`}>
+          <form ref={form} onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label htmlFor="firstName" className={`text-sm transition-colors duration-300 ${
+                  isDark ? 'text-gray-300' : 'text-gray-700'
+                }`}>
+                  First Name <span className="text-[#8e5e42]">*</span>
+                </label>
+                <Input 
+                  id="firstName" 
+                  name="firstName" 
+                  required 
+                  className={isDark ? 'bg-gray-700 border-gray-600 text-white' : ''}
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="lastName" className={`text-sm transition-colors duration-300 ${
+                  isDark ? 'text-gray-300' : 'text-gray-700'
+                }`}>
+                  Last Name <span className="text-[#8e5e42]">*</span>
+                </label>
+                <Input 
+                  id="lastName" 
+                  name="lastName" 
+                  required 
+                  className={isDark ? 'bg-gray-700 border-gray-600 text-white' : ''}
+                />
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label htmlFor="email" className={`text-sm transition-colors duration-300 ${
+                  isDark ? 'text-gray-300' : 'text-gray-700'
+                }`}>
+                  Email <span className="text-[#8e5e42]">*</span>
+                </label>
+                <Input 
+                  id="email" 
+                  name="email" 
+                  type="email" 
+                  required 
+                  className={isDark ? 'bg-gray-700 border-gray-600 text-white' : ''}
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="companyName" className={`text-sm transition-colors duration-300 ${
+                  isDark ? 'text-gray-300' : 'text-gray-700'
+                }`}>
+                  Company Name <span className="text-[#8e5e42]">*</span>
+                </label>
+                <Input 
+                  id="companyName" 
+                  name="companyName" 
+                  required 
+                  className={isDark ? 'bg-gray-700 border-gray-600 text-white' : ''}
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <label htmlFor="reasonForEnquiry" className={`text-sm transition-colors duration-300 ${
+                isDark ? 'text-gray-300' : 'text-gray-700'
+              }`}>
+                Service Interest <span className="text-[#8e5e42]">*</span>
+              </label>
+              <Select name="reasonForEnquiry" value={reasonForEnquiry} onValueChange={setReasonForEnquiry} required>
+                <SelectTrigger className={isDark ? 'bg-gray-700 border-gray-600 text-white' : ''}>
+                  <SelectValue placeholder="Select" />
+                </SelectTrigger>
+                <SelectContent className={isDark ? 'bg-gray-700 border-gray-600' : ''}>
+                  {reasonOptions.map((option) => (
+                    <SelectItem 
+                      key={option.value} 
+                      value={option.value}
+                      className={isDark ? 'text-white hover:bg-gray-600' : ''}
+                    >
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+      
+            <div className="space-y-2">
+              <label htmlFor="additionalComments" className={`text-sm transition-colors duration-300 ${
+                isDark ? 'text-gray-300' : 'text-gray-700'
+              }`}>
+                Additional Comments
+              </label>
+              <Textarea 
+                id="additionalComments" 
+                name="additionalComments" 
+                className={`min-h-[100px] ${isDark ? 'bg-gray-700 border-gray-600 text-white' : ''}`}
+              />
+            </div>
+
+            <div className={`text-sm transition-colors duration-300 ${
+              isDark ? 'text-gray-400' : 'text-gray-500'
+            }`}>
+              <p className="mb-2">
+                We're committed to your privacy. RAC uses the information you provide to keep you
+                informed about our services, product updates, and industry insights. By submitting
+                this form, you agree to receive these communications from us. For more details on how we handle and
+                protect your data, please review our{" "}
+                <a href="/privacy" className="text-[#8e5e42] hover:underline">
+                  Privacy Policy
+                </a>
+                .
+              </p>
+              <p>You can opt out of these communications at any time.</p>
+            </div>
+
+            <Button 
+              type="submit" 
+              variant="outline" 
+              disabled={isSubmitting || !emailJSLoaded} 
+              className={`w-32 transition-all duration-300 ${
+                isDark 
+                  ? 'border-[#8e5e42] text-[#8e5e42] hover:bg-[#8e5e42]/10' 
+                  : 'border-[#8e5e42] text-[#8e5e42] hover:bg-[#8e5e42]/10'
+              }`}
+            >
+              {isSubmitting ? (
+                <span className="flex items-center gap-2">
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  Sending...
+                </span>
+              ) : (
+                <span className="flex items-center gap-2">
+                  Submit <ArrowRight className="h-4 w-4" />
+                </span>
+              )}
+            </Button>
+          </form>
+        </div>
+
+        {/* Location section */}
+        <div className="space-y-6 px-4 sm:px-0">
+          <h2 className={`text-2xl font-light transition-colors duration-300 font-heading ${
+            isDark ? 'text-white' : 'text-gray-900'
+          }`}>
+            Our Locations
+          </h2>
+
+          {/* Map View */}
+          <LocationMap isDark={isDark} />
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-4">
+              <h3 className={`text-xl font-medium transition-colors duration-300 font-heading ${
+                isDark ? 'text-white' : 'text-gray-900'
+              }`}>
+                Lagos Island Location
+              </h3>
+              <div className="space-y-2">
+                <div className="flex items-start gap-2">
+                  <MapPin className={`h-5 w-5 mt-1 transition-colors duration-300 ${
+                    isDark ? 'text-gray-400' : 'text-gray-400'
+                  }`} />
+                  <div>
+                    <p className={`transition-colors duration-300 ${
+                      isDark ? 'text-gray-300' : 'text-gray-700'
+                    }`}>
+                      Unit 20, Trocadero Square, The Rock Drive, <br/>Lekki Phase 1, Lagos, Nigeria.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className={`h-5 w-5 transition-colors duration-300 ${
+                    isDark ? 'text-gray-400' : 'text-gray-400'
+                  }`} />
+                  <p className={`transition-colors duration-300 ${
+                    isDark ? 'text-gray-300' : 'text-gray-700'
+                  }`}>
+                    +234 818 969 6614
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className={`h-5 w-5 transition-colors duration-300 ${
+                    isDark ? 'text-gray-400' : 'text-gray-400'
+                  }`} />
+                  <a 
+                    href="mailto:hello@redtechafrica.com" 
+                    className={`transition-colors duration-300 ${
+                      isDark ? 'text-gray-300 hover:text-[#8e5e42]' : 'text-gray-700 hover:text-[#8e5e42]'
+                    }`}
+                  >
+                    hello@redtechafrica.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <a
+                    href="#"
+                    onClick={(e) => handleGetDirections(e, "Unit 20, Trocadero Square, The Rock Drive, Lekki Phase 1, Lagos, Nigeria")}
+                    className="text-[#8e5e42] hover:underline"
+                  >
+                    Get Directions {">"}
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className={`text-xl font-medium transition-colors duration-300 font-heading ${
+                isDark ? 'text-white' : 'text-gray-900'
+              }`}>
+                London, UK Location
+              </h3>
+              <div className="space-y-2">
+                <div className="flex items-start gap-2">
+                  <MapPin className={`h-5 w-5 mt-1 transition-colors duration-300 ${
+                    isDark ? 'text-gray-400' : 'text-gray-400'
+                  }`} />
+                  <div>
+                    <p className={`transition-colors duration-300 ${
+                      isDark ? 'text-gray-300' : 'text-gray-700'
+                    }`}>
+                      11 Old Bond Street, Mayfair, London<br/> W1S 4PN, United Kingdom
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className={`h-5 w-5 transition-colors duration-300 ${
+                    isDark ? 'text-gray-400' : 'text-gray-400'
+                  }`} />
+                  <p className={`transition-colors duration-300 ${
+                    isDark ? 'text-gray-300' : 'text-gray-700'
+                  }`}>
+                    +44 7535 718997
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className={`h-5 w-5 transition-colors duration-300 ${
+                    isDark ? 'text-gray-400' : 'text-gray-400'
+                  }`} />
+                  <a 
+                    href="mailto:hello@redtechafrica.com" 
+                    className={`transition-colors duration-300 ${
+                      isDark ? 'text-gray-300 hover:text-[#8e5e42]' : 'text-gray-700 hover:text-[#8e5e42]'
+                    }`}
+                  >
+                    hello@redtechafrica.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <a
+                    href="#"
+                    onClick={(e) =>
+                      handleGetDirections(e, "11 Old Bond Street, Mayfair, London W1S 4PN, UK")
+                    }
+                    className="text-[#8e5e42] hover:underline"
+                  >
+                    Get Directions {">"}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
