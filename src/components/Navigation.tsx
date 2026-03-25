@@ -22,10 +22,7 @@ export function Navigation() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
-    { href: '/solutions', label: 'Solutions' },
-    { href: '/resourcing', label: 'Resourcing' },
-    { href: '/edtech', label: 'EdTech' },
-    { href: '/technology', label: 'Technology' },
+    { href: '/services', label: 'Services' },
     { href: '/insights', label: 'Insights' },
     { href: '/contact', label: 'Contact' },
   ];

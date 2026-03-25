@@ -9,10 +9,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import Index from "./pages/Index";
 import AboutPage from "./components/AboutPage";
-import SolutionsPage from "./components/SolutionsPage";
-import ResourcingPage from "./components/ResourcingPage";
-import EdTechPage from "./components/EdTechPage";
-import TechnologyPage from "./components/TechnologyPage";
+import ServicesPage from "./components/ServicesPage";
 import ContactPage from "./components/ContactPage";
 import InsightsPage from "./components/InsightsPage";
 import PrivacyPage from "./pages/PrivacyPage";
@@ -33,10 +30,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<><AboutPage /><Footer /></>} />
-              <Route path="/solutions" element={<><SolutionsPage /><Footer /></>} />
-              <Route path="/resourcing" element={<><ResourcingPage /><Footer /></>} />
-              <Route path="/edtech" element={<><EdTechPage /><Footer /></>} />
-              <Route path="/technology" element={<><TechnologyPage /><Footer /></>} />
+              <Route path="/services" element={<><ServicesPage /><Footer /></>} />
               <Route path="/insights" element={<><InsightsPage /><Footer /></>} />
               <Route path="/contact" element={<><ContactPage /><Footer /></>} />
               <Route path="/privacy" element={<><PrivacyPage /><Footer /></>} />
