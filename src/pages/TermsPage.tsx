@@ -212,7 +212,7 @@ const TermsPage = () => {
             isDark ? 'text-gray-400' : 'text-gray-500'
           }`}>
             <p className="mb-2">Last updated: January 04, 2025</p>
-            <p>© 2025 REDtech Africa Consulting. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} REDtech Africa Consulting. All rights reserved.</p>
           </div>
         </div>
       </section>

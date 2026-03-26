@@ -34,9 +34,7 @@ export function Footer() {
 
   const quickLinks = [
     { label: 'About', path: '/about' },
-    { label: 'Resourcing', path: '/resourcing' },
-    { label: 'EdTech', path: '/edtech' },
-    { label: 'Technology', path: '/technology' },
+    { label: 'Services', path: '/services' },
     { label: 'Insights', path: '/insights' },
     { label: 'Contact', path: '/contact' },
   ];
@@ -298,7 +296,7 @@ export function Footer() {
         <div className="border-t border-gray-800/50 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
           <div className="flex items-center gap-2 mb-4 md:mb-0">
             <span className="text-xl">©</span>
-            <p className="font-medium">2025 REDtech Africa Inc. All rights reserved.</p>
+            <p className="font-medium">{new Date().getFullYear()} REDtech Africa Inc. All rights reserved.</p>
           </div>
           <div className="flex space-x-8">
             <a href="/privacy" className="hover:text-white transition-colors duration-300 relative group">
