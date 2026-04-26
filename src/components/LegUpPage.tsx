@@ -1,0 +1,144 @@
+import React from 'react';
+import { ArrowRight, CheckCircle2, ShieldCheck, Target, TrendingUp } from 'lucide-react';
+import { useTheme } from '@/contexts/ThemeContext';
+
+export default function LegUpPage() {
+  const { isDark } = useTheme();
+
+  return (
+    <div className={`min-h-screen transition-all duration-500 overflow-hidden ${
+      isDark
+        ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white'
+        : 'bg-gradient-to-br from-gray-50 via-white to-[#8e5e42]/5 text-gray-900'
+    }`}>
+
+      {/* Animated Background Blobs */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className={`absolute top-20 right-20 w-96 h-96 blur-3xl animate-pulse ${isDark ? 'bg-[#8e5e42]/10' : 'bg-[#8e5e42]/5'}`} />
+        <div className={`absolute bottom-40 left-20 w-80 h-80 blur-3xl animate-pulse delay-1000 ${isDark ? 'bg-[#8e5e42]/10' : 'bg-[#8e5e42]/5'}`} />
+      </div>
+
+      {/* PLATFORM BANNER (HERO) */}
+      <section className={`pt-32 pb-24 px-4 sm:px-6 lg:px-8 relative border-b ${
+        isDark ? 'border-[#8e5e42]/20' : 'border-[#8e5e42]/20'
+      }`}>
+        <div className="container max-w-5xl mx-auto relative z-10 text-center">
+          <p className="text-xs font-bold tracking-[0.25em] uppercase text-[#8e5e42] mb-6">Platform</p>
+          <h1 className={`text-5xl md:text-7xl font-black leading-tight mb-8 font-heading ${isDark ? 'text-white' : 'text-gray-900'}`}>
+            LEG UP — Where Capability Speaks Louder Than a CV.
+          </h1>
+          <p className={`text-xl max-w-3xl mx-auto mb-12 leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+            LEG UP is a hackathon-led talent matching and skill verification ecosystem built for the way work gets done. Through our Skill Snapshot, individuals are assessed on real, project-based capability — not unverified claims on a page. Employers see exactly what candidates can do whilst talent finally gets a fair shot at proving it.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="mailto:hello@redtechafrica.com?subject=LEG UP - Employer Enquiry" className="px-8 py-4 rounded-2xl bg-[#8e5e42] text-white font-bold text-lg hover:bg-[#8e5e42]/90 hover:shadow-xl hover:shadow-[#8e5e42]/25 transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2">
+              I'm an Employer <ArrowRight size={20} />
+            </a>
+            <a href="mailto:hello@redtechafrica.com?subject=LEG UP - Talent Enquiry" className={`px-8 py-4 rounded-2xl border-2 border-[#8e5e42] font-bold text-lg transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2 ${
+              isDark ? 'text-white hover:bg-[#8e5e42]/10' : 'text-gray-900 hover:bg-[#8e5e42]/10'
+            }`}>
+              I'm Looking for Opportunities <ArrowRight size={20} />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* SKILL SNAPSHOT - PRODUCT DESCRIPTION */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8">
+        <div className="container max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-xs font-bold tracking-[0.25em] uppercase text-[#8e5e42] mb-4">What is a Skill Snapshot?</p>
+            <h2 className={`text-4xl md:text-5xl font-black font-heading mb-6 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+              Your Proof of Work. Not Just a Record of It.
+            </h2>
+            <p className={`text-xl max-w-3xl mx-auto leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+              A Skill Snapshot is your verified, living portfolio — built through real challenges, not self-reported claims. Where a traditional CV tells employers what you say you can do, a Skill Snapshot shows them what you have done, assessed against real-world standards.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-start mb-20">
+            {/* Left Column: How it Works & Why It Matters */}
+            <div className="space-y-12">
+              <div className={`p-8 rounded-3xl border transition-all duration-300 ${
+                isDark
+                  ? 'bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-[#8e5e42]/20'
+                  : 'bg-gradient-to-br from-white/80 to-[#8e5e42]/5 border-[#8e5e42]/20'
+              }`}>
+                <div className="w-12 h-12 rounded-2xl bg-[#8e5e42]/10 flex items-center justify-center mb-6">
+                  <Target className="text-[#8e5e42]" size={24} />
+                </div>
+                <h3 className={`text-2xl font-bold mb-4 font-heading ${isDark ? 'text-white' : 'text-gray-900'}`}>How It Works</h3>
+                <p className={`text-base leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                  Through LEG UP's hackathon-led challenges, you are placed in live, project-based scenarios that reflect the demands of today's workplace. Your performance is assessed, verified, and captured in your Skill Snapshot — a portable, employer-ready record of demonstrated capability.
+                </p>
+              </div>
+
+              <div className={`p-8 rounded-3xl border transition-all duration-300 ${
+                isDark
+                  ? 'bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-[#8e5e42]/20'
+                  : 'bg-gradient-to-br from-white/80 to-[#8e5e42]/5 border-[#8e5e42]/20'
+              }`}>
+                <div className="w-12 h-12 rounded-2xl bg-[#8e5e42]/10 flex items-center justify-center mb-6">
+                  <TrendingUp className="text-[#8e5e42]" size={24} />
+                </div>
+                <h3 className={`text-2xl font-bold mb-4 font-heading ${isDark ? 'text-white' : 'text-gray-900'}`}>Why It Matters</h3>
+                <p className={`text-base leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                  For too long, hiring has rewarded those who can write a strong CV over those who can do strong work. The Skill Snapshot changes that — giving overlooked talent a credible, evidence-based way into the room, and giving employers the confidence to hire on capability, not assumption.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Column: What It Includes */}
+            <div className={`p-10 rounded-3xl border-l-4 border-[#8e5e42] shadow-2xl h-full ${
+              isDark ? 'bg-gray-900/80 border-y border-r border-gray-800' : 'bg-white border-y border-r border-gray-200'
+            }`}>
+              <div className="w-16 h-16 rounded-2xl bg-[#8e5e42] flex items-center justify-center mb-8 shadow-lg shadow-[#8e5e42]/20">
+                <ShieldCheck className="text-white" size={32} />
+              </div>
+              <h3 className={`text-3xl font-bold mb-8 font-heading ${isDark ? 'text-white' : 'text-gray-900'}`}>What It Includes</h3>
+              
+              <ul className="space-y-6">
+                {[
+                  'Verified project outcomes across relevant skill areas',
+                  'Assessor-validated performance ratings — not self-scored',
+                  'A capability profile matched to employer requirements',
+                  'A continuously updated record that grows as you do'
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-4">
+                    <div className="flex-shrink-0 mt-1">
+                      <CheckCircle2 className="text-[#8e5e42]" size={20} />
+                    </div>
+                    <span className={`text-lg leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Skill Snapshot Visual */}
+              <div className="mt-12 w-full h-64 sm:h-80 rounded-2xl overflow-hidden relative shadow-lg shadow-black/20 group">
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                <img 
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200" 
+                  alt="Skill Snapshot Team Collaboration" 
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="mailto:hello@redtechafrica.com?subject=LEG UP - Employer Enquiry" className="px-8 py-4 rounded-2xl bg-[#8e5e42] text-white font-bold text-lg hover:bg-[#8e5e42]/90 hover:shadow-xl hover:shadow-[#8e5e42]/25 transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2">
+              For Employers <ArrowRight size={20} />
+            </a>
+            <a href="mailto:hello@redtechafrica.com?subject=LEG UP - Create Skill Snapshot" className={`px-8 py-4 rounded-2xl border-2 border-[#8e5e42] font-bold text-lg transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2 ${
+              isDark ? 'text-white hover:bg-[#8e5e42]/10' : 'text-gray-900 hover:bg-[#8e5e42]/10'
+            }`}>
+              Build Your Skill Snapshot <ArrowRight size={20} />
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

@@ -35,6 +35,7 @@ export function Footer() {
   const quickLinks = [
     { label: 'About', path: '/about' },
     { label: 'Services', path: '/services' },
+    { label: 'LegUp', path: '/legup' },
     { label: 'Insights', path: '/insights' },
     { label: 'Contact', path: '/contact' },
   ];
@@ -69,9 +70,6 @@ export function Footer() {
             <h3 className="text-3xl font-bold text-white mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text font-heading">
               REDtech Africa
             </h3>
-            <p className="text-gray-400 text-sm leading-relaxed">
-               RAC helps organisations access top talent, deploy transformative technology, and create sustainable learning ecosystems
-            </p>
           </div>
 
           {/* Quick Links */}

@@ -10,6 +10,7 @@ import { Footer } from "@/components/Footer";
 import Index from "./pages/Index";
 import AboutPage from "./components/AboutPage";
 import ServicesPage from "./components/ServicesPage";
+import LegUpPage from "./components/LegUpPage";
 import ContactPage from "./components/ContactPage";
 import InsightsPage from "./components/InsightsPage";
 import PrivacyPage from "./pages/PrivacyPage";
@@ -31,6 +32,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<><AboutPage /><Footer /></>} />
               <Route path="/services" element={<><ServicesPage /><Footer /></>} />
+              <Route path="/legup" element={<><LegUpPage /><Footer /></>} />
               <Route path="/insights" element={<><InsightsPage /><Footer /></>} />
               <Route path="/contact" element={<><ContactPage /><Footer /></>} />
               <Route path="/privacy" element={<><PrivacyPage /><Footer /></>} />

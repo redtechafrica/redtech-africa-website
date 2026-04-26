@@ -129,7 +129,7 @@ export default function AboutPage() {
             <p className={`text-2xl md:text-3xl max-w-4xl mx-auto leading-relaxed mb-12 ${
               isDark ? 'text-gray-300' : 'text-gray-600'
             }`}>
-              We help organisations access top talent, deploy transformative technology, and create sustainable learning ecosystems.
+              RAC closes the gap between the workforce you have and the results you need — through resourcing, education, and digital advisory that only comes from 15+ years on the inside: within HR teams, financial institutions, and technology organisations.
             </p>
             
             {/* Animated DNA Helix */}
@@ -168,9 +168,9 @@ export default function AboutPage() {
               <div className="space-y-4">
                 <div className={`w-full h-1 bg-[#8e5e42] rounded-full`}></div>
                 <p className={`text-lg leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                To bridge critical resource gaps, deploy transformative education technologies, and deliver strategic technology consulting 
-                that empowers African organisations to compete globally. We create sustainable ecosystems where talent, innovation, 
-                and technology converge to drive meaningful impact across the continent and beyond.
+                To close the capability gap facing organisations by connecting them to the right people, equipping 
+                their teams with skills that stick, and embedding the digital knowledge needed to compete. We work 
+                from the inside out, building infrastructure that transforms how organisations resource, learn, and grow.
                 </p>
               </div>
             </div>
@@ -186,10 +186,9 @@ export default function AboutPage() {
               <div className="space-y-4">
                 <div className={`w-full h-1 bg-[#8e5e42] rounded-full`}></div>
                 <p className={`text-lg leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                To be the premier integrated firm connecting Africa's talent, education, and technology ecosystems. 
-                We envision a continent where every organisation has access to the resources, innovation platforms, 
-                and strategic technology needed to thrive in the global digital economy, driving inclusive growth 
-                and transformational change across sectors.
+                To be the most trusted capability partner for organisations globally — where every business, 
+                regardless of size or sector, has access to practitioner-led resourcing, real-world learning, and 
+                technology expertise that drives lasting performance and competitive growth.
                 </p>
               </div>
             </div>
@@ -214,38 +213,39 @@ export default function AboutPage() {
                     <Users size={32} className="text-white" />
                   </div>
                   <h3 className={`text-xl font-bold mb-2 font-heading font-playfair ${isDark ? 'text-white' : 'text-gray-900'}`}>Resourcing</h3>
-                  <p className={isDark ? 'text-gray-400' : 'text-gray-600'}>Strategic talent and ecosystem development</p>
+                  <p className={isDark ? 'text-gray-400' : 'text-gray-600'}>Practitioner-led talent matching and workforce design</p>
                 </div>
                 <div className="text-center">
                   <div className={`w-20 h-20 bg-[#8e5e42] rounded-2xl flex items-center justify-center mx-auto mb-4`}>
                     <Brain size={32} className="text-white" />
                   </div>
                   <h3 className={`text-xl font-bold mb-2 font-heading font-playfair ${isDark ? 'text-white' : 'text-gray-900'}`}>Education</h3>
-                  <p className={isDark ? 'text-gray-400' : 'text-gray-600'}>EdTech platforms and learning solutions</p>
+                  <p className={isDark ? 'text-gray-400' : 'text-gray-600'}>Bespoke capability programmes delivered by industry practitioners</p>
                 </div>
                 <div className="text-center">
                   <div className={`w-20 h-20 bg-[#8e5e42] rounded-2xl flex items-center justify-center mx-auto mb-4`}>
                     <Code size={32} className="text-white" />
                   </div>
-                  <h3 className={`text-xl font-bold mb-2 font-heading font-playfair ${isDark ? 'text-white' : 'text-gray-900'}`}>Digital Technology</h3>
-                  <p className={isDark ? 'text-gray-400' : 'text-gray-600'}>Strategic consulting and innovation delivery</p>
+                  <h3 className={`text-xl font-bold mb-2 font-heading font-playfair ${isDark ? 'text-white' : 'text-gray-900'}`}>Digital Technology Advisory</h3>
+                  <p className={isDark ? 'text-gray-400' : 'text-gray-600'}>AI literacy, cyber awareness, and digital strategy</p>
                 </div>
               </div>
               <p className={`text-xl leading-relaxed max-w-4xl mx-auto ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                RAC operates at the unique intersection of Resourcing, Education, and Technology. This integrated approach 
-                allows us to address the full spectrum of organisational needs, from securing the right talent and partnerships, 
-                to deploying transformative learning platforms, to building cutting-edge technology infrastructure that drives 
-                sustainable competitive advantage.
+                RAC operates at the intersection of Resourcing, Education, and Digital Technology — not as three separate services, 
+                but as one connected capability system. Because the organisations we work with don't have isolated problems. 
+                They have people gaps, skills gaps, and technology gaps that feed each other. We close all three — from the inside out, 
+                grounded in real experience across HR, financial services, and technology organisations.
               </p>
             </div>
 
             <div className={`${isDark ? 'bg-gradient-to-r from-[#8e5e42]/10 to-[#8e5e42]/10 border-[#8e5e42]/20' : 'bg-gradient-to-r from-[#8e5e42]/10 to-[#8e5e42]/10 border-[#8e5e42]/30'} backdrop-blur-sm rounded-3xl p-12 border`}>
-              <h2 className={`text-5xl font-black mb-8 font-heading font-playfair ${isDark ? 'text-white' : 'text-gray-900'}`}>Global Presence</h2>
+              <h2 className={`text-5xl font-black mb-8 font-heading font-playfair ${isDark ? 'text-white' : 'text-gray-900'}`}>Our Presence</h2>
               <p className={`text-xl leading-relaxed max-w-4xl mx-auto mb-8 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                With our headquarters rooted in Africa and partnerships spanning across continents, we bring local 
-                insights and global perspectives to every project. Our diverse portfolio includes clients from 
-                start-ups to multinational corporations, all united by the common goal of digital transformation 
-                and creative excellence.
+                <span className="block font-bold text-[#8e5e42] mb-4">Rooted in Africa. Active Globally.</span>
+                RAC works across the globe — bringing practitioner knowledge from two markets into every 
+                engagement. Our clients range from growing businesses navigating their first capability investment to 
+                established institutions restructuring how their people perform. What they share is a recognition that 
+                generic solutions no longer cut it — and a need for a partner who has been where they are.
               </p>
               <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
                 <div className={`${isDark ? 'bg-gray-800/30' : 'bg-white/50'} rounded-xl p-4 text-center`}>
@@ -261,11 +261,22 @@ export default function AboutPage() {
 
             <div className={`${isDark ? 'bg-gradient-to-r from-[#8e5e42]/10 to-[#8e5e42]/10 border-[#8e5e42]/20' : 'bg-gradient-to-r from-[#8e5e42]/10 to-[#8e5e42]/10 border-[#8e5e42]/30'} backdrop-blur-sm rounded-3xl p-12 border`}>
               <h2 className={`text-5xl font-black mb-8 font-heading font-playfair ${isDark ? 'text-white' : 'text-gray-900'}`}>Our History</h2>
+              <p className={`text-xl leading-relaxed max-w-4xl mx-auto mb-6 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                REDtech Africa Consulting was founded in 2018 on a simple but urgent insight — that the gap 
+                between learning and real work was costing organisations and individuals alike. Too many people 
+                were being trained without being employed. Too many organisations were spending on development 
+                without seeing performance shift. And too many technology investments were landing without the 
+                capability to make them work.
+              </p>
+              <p className={`text-xl leading-relaxed max-w-4xl mx-auto mb-6 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                RAC was built to change that. Drawing on 15+ years spent working inside HR functions, financial 
+                institutions, and technology organisations across Nigeria and the UK, our founders designed a 
+                different kind of firm — one where resourcing, education, and digital advisory are not separate 
+                services, but a connected system for closing the capability gap.
+              </p>
               <p className={`text-xl leading-relaxed max-w-4xl mx-auto ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                Founded with a vision to democratise technology and amplify African creativity, REDtech Africa 
-                Consulting has evolved from a small tech start-up to a comprehensive digital transformation partner. 
-                Our journey has been marked by groundbreaking projects, innovative solutions, and a commitment to 
-                pushing the boundaries of what's possible in the digital realm.
+                From day one, the mission has been the same: connect learning to real work, build skills that earn, 
+                and develop people and organisations from the inside out.
               </p>
             </div>
           </div>
@@ -321,57 +332,35 @@ export default function AboutPage() {
               Our Values
             </h2>
             
-            {/* Interactive Values Display */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Left - Navigation */}
-              <div className="space-y-4">
-                {values.map((value, index) => {
-                  const IconComponent = value.icon;
-                  return (
-                    <button
-                      key={index}
-                      onClick={() => setActiveValue(index)}
-                      className={`w-full p-6 rounded-2xl text-left transition-all duration-500 transform ${
-                        activeValue === index 
-                          ? isDark
-                            ? 'bg-gradient-to-r from-gray-700/50 to-gray-600/50 border-2 border-white/20 scale-105' 
-                            : 'bg-gradient-to-r from-white/80 to-gray-50/80 border-2 border-gray-300/40 scale-105'
-                          : isDark
-                            ? 'bg-gray-800/30 border border-gray-700/30 hover:bg-gray-700/40'
-                            : 'bg-white/50 border border-gray-200/40 hover:bg-gray-50/60'
-                      }`}
-                    >
-                      <div className="flex items-center space-x-4">
-                        <div className={`w-12 h-12 bg-[#8e5e42] rounded-xl flex items-center justify-center transition-transform duration-300 ${
-                          activeValue === index ? 'scale-110' : ''
-                        }`}>
-                          <IconComponent size={20} className="text-white" />
-                        </div>
-                        <span className={`text-xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>{value.title}</span>
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Right - Active Value Display */}
-              <div className={`${isDark ? 'bg-gradient-to-br from-gray-800/50 to-gray-700/50 border-gray-600/30' : 'bg-gradient-to-br from-white/80 to-gray-50/80 border-gray-200/50'} backdrop-blur-sm rounded-3xl p-12 border min-h-[400px] flex flex-col justify-center`}>
-                <div className="transition-all duration-500 transform">
-                  <div className="flex items-center mb-8">
-                    <div className={`w-20 h-20 bg-[#8e5e42] rounded-2xl flex items-center justify-center mr-6`}>
-                      {(() => {
-                        const IconComponent = values[activeValue].icon;
-                        return <IconComponent size={32} className="text-white" />;
-                      })()}
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: 'Innovation',
+                  desc: 'We don\'t retrofit old solutions to new problems. From hackathon-led skill verification to AI literacy programmes and digital advisory, we bring fresh thinking to how organisations resource, learn, and grow — always grounded in what works in the real world.',
+                  icon: Rocket,
+                },
+                {
+                  title: 'Collaboration',
+                  desc: 'We work alongside our clients, not above them. Every engagement starts with understanding the organisation from the inside — its people, its gaps, its ambitions. We build with you, not just for you, because lasting capability only comes from shared ownership.',
+                  icon: Users,
+                },
+                {
+                  title: 'Excellence',
+                  desc: 'We hold ourselves to the standard of the organisations we\'ve worked inside. That means no generic frameworks, no off-the-shelf programmes, and no advisory that isn\'t grounded in real experience. Every solution we deliver is practitioner-led, context-aware, and built to last beyond the engagement.',
+                  icon: Award,
+                },
+              ].map((value, idx) => {
+                const Icon = value.icon;
+                return (
+                  <div key={idx} className={`${isDark ? 'bg-gradient-to-br from-[#8e5e42]/10 to-[#8e5e42]/10 border-[#8e5e42]/20' : 'bg-gradient-to-br from-[#8e5e42]/5 to-[#8e5e42]/5 border-[#8e5e42]/20'} backdrop-blur-sm rounded-3xl p-8 border hover:shadow-xl transition-shadow duration-300`}>
+                    <div className={`w-16 h-16 bg-[#8e5e42] rounded-2xl flex items-center justify-center mb-6`}>
+                      <Icon size={28} className="text-white" />
                     </div>
-                    <h3 className={`text-4xl font-black font-heading font-playfair ${isDark ? 'text-white' : 'text-gray-900'}`}>{values[activeValue].title}</h3>
+                    <h3 className={`text-2xl font-bold mb-4 font-heading font-playfair ${isDark ? 'text-white' : 'text-gray-900'}`}>{value.title}</h3>
+                    <p className={`text-sm leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>{value.desc}</p>
                   </div>
-                  <div className={`w-full h-2 bg-[#8e5e42] rounded-full mb-8`}></div>
-                  <p className={`text-xl leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                    {values[activeValue].description}
-                  </p>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </div>
